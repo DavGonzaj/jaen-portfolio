@@ -1,38 +1,222 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  transition: background 0.5s, color 0.5s;
+}
+
+body.dark {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Header */
+header {
+  background-color: #1f1f1f;
+  color: #fff;
+  padding: 20px 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+nav {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 16px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+nav a,
+nav .toggle {
+  color: #ddd;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+nav a:hover,
+nav .toggle:hover {
+  color: #fff;
+}
+
+nav .toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Hero */
+.hero {
+  padding: 80px 20px;
+  background: linear-gradient(to right, #00c6ff, #0072ff);
   color: white;
+  animation: fadeIn 2s ease-in;
 }
 
-.App-link {
-  color: #61dafb;
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  animation: slideDown 1s ease-out;
 }
 
-@keyframes App-logo-spin {
+.hero p {
+  font-size: 1.2rem;
+  max-width: 90%;
+  margin: 0 auto;
+  animation: fadeIn 2.5s ease-in;
+}
+
+/* Portfolio Section */
+.portfolio-section {
+  padding: 60px 16px;
+  display: flex;
+  justify-content: center;
+  background-color: #f5f5f5;
+  animation: slideUp 1.5s ease-out;
+}
+
+body.dark .portfolio-section {
+  background-color: #1a1a1a;
+}
+
+.portfolio-card {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  width: 100%;
+  animation: popIn 1.3s ease-out;
+  transition: background 0.3s;
+}
+
+body.dark .portfolio-card {
+  background: #262626;
+  color: #e0e0e0;
+}
+
+/* Button */
+.button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: #0072ff;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.button:hover {
+  background-color: #005bd3;
+}
+
+/* Footer */
+footer {
+  background-color: #1f1f1f;
+  color: white;
+  padding: 20px 0;
+  font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .portfolio-card {
+    padding: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .portfolio-card {
+    padding: 28px;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 60px 16px;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .portfolio-card {
+    padding: 24px 16px;
+  }
+
+  .button {
+    font-size: 0.95rem;
+    padding: 10px 20px;
+  }
+
+  footer {
+    font-size: 0.8rem;
   }
 }
