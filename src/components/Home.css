@@ -1,0 +1,70 @@
+/* src/components/Home.css */
+body.dark {
+  background: #121212;
+  color: white;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+/* Dark Mode Toggle */
+.dark-toggle {
+  position: fixed;
+  z-index: 1000;
+}
+
+/* Mobile (bottom right) */
+@media (max-width: 768px) {
+  .dark-toggle {
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
+/* Desktop (top right) */
+@media (min-width: 769px) {
+  .dark-toggle {
+    top: 20px;
+    right: 20px;
+  }
+}
+
+.logo {
+  max-width: 150px;
+}
+
+.hero {
+  padding: 4rem 1rem;
+}
+
+.portfolio-button {
+  margin-bottom: 1.5rem;
+  padding: 10px 20px;
+  border-radius: 8px;
+  background: #0070f3;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.portfolio-button:hover {
+  transform: scale(1.05);
+}
+
+/* Scroll To Top Button */
+.scroll-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 40px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
